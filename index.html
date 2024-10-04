@@ -3,48 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Placeholder Page</title>
+    <title>Farewell to Sphinx</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
+        body, html {
             margin: 0;
             padding: 0;
+            height: 100vh;
+            font-family: system-ui, -apple-system, sans-serif;
+            color: #e5e7eb;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            overflow: hidden;
         }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
         .container {
+            position: relative;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            z-index: 2;
+            padding: 1rem;
         }
-        h1 {
-            font-size: 3em;
-            margin: 0.5em 0;
+
+        .content-box {
+            width: 90%;
+            max-width: 700px;
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            border: 1px solid rgba(75, 85, 99, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 2rem;
         }
-        p {
-            font-size: 1.2em;
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(75, 85, 99, 0.3);
         }
-        .button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
+            background: linear-gradient(135deg, #e5e7eb 0%, #9ca3af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .message-box {
+            background: rgba(55, 65, 81, 0.5);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(75, 85, 99, 0.2);
+            line-height: 1.6;
+        }
+
+        .message-box p:first-child {
+            margin-top: 0;
+        }
+
+        .message-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: #93c5fd;
+            font-weight: 600;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(75, 85, 99, 0.3);
+        }
+
+        .social-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            background: rgba(55, 65, 81, 0.5);
+            border: 1px solid rgba(75, 85, 99, 0.3);
+            color: #e5e7eb;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
+            transition: all 0.2s ease;
         }
-        .button:hover {
-            background-color: #0056b3;
+
+        .social-button:hover {
+            background: rgba(75, 85, 99, 0.7);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
+    <div id="particles-js"></div>
     <div class="container">
-        <h1>Placeholder Page</h1>
-        <p>This is a placeholder page. Replace this content with your actual content.</p>
-        <a href="#" class="button">Learn More</a>
+        <div class="content-box">
+            <header class="header">
+                <div class="logo">
+                    <img src="https://i.imgur.com/sGZndqt.png" alt="Sphinx Logo" />
+                </div>
+                <h1 class="title">Farewell to Sphinx</h1>
+            </header>
+            
+            <div class="message-box">
+                <p>It is with a heavy heart that we announce the closure of Sphinx. Since our launch in April, we've faced significant challenges in generating the necessary revenue to maintain our operations.</p>
+                <p>We are deeply grateful to all our users who have supported us throughout this journey. While this chapter ends, our mission continues with <span class="highlight">Rho-9</span>, where we'll be focusing our expertise on enhancing Discord security.</p>
+                <p>We're excited to bring the same dedication and innovation to this new venture and hope you'll join us on this path forward.</p>
+            </div>
+            
+            <footer class="footer">
+                <a href="#" class="social-button">Join Rho-9</a>
+                <a href="#" class="social-button">Contact Us</a>
+            </footer>
+        </div>
     </div>
+
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+    </script>
 </body>
 </html>
